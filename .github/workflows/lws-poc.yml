@@ -46,6 +46,10 @@ jobs:
       run: |
         composer global require php-coveralls/php-coveralls
         mkdir build
+        cd build
+        mkdir logs
+        cd ..
+        cd ..
         php-coveralls --coverage_clover=build/logs/clover.xml -v
 
 
