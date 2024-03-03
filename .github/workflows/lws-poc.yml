@@ -39,8 +39,11 @@ jobs:
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       working-directory: ./servers-api
       run: vendor/bin/phpunit
-    - name: Coveralls GitHub Action
-      uses: coverallsapp/github-action@v2.2.3
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload coverage results to Coveralls
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        composer global require php-coveralls/php-coveralls
+        php-coveralls --coverage_clover=build/logs/clover.xml -v
+
 
