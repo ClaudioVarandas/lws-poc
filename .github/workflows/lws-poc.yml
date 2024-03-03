@@ -28,6 +28,14 @@ jobs:
     - name: Directory Permissions
       working-directory: ./servers-api
       run: chmod -R 777 storage bootstrap/cache
+    - name: Create import folder
+      working-directory: ./servers-api
+      run: mkdir storage/app/import
+    - name: Copy csv file with the source data
+      run: cp etc/import/servers_filters_assignment.csv servers-api/storage/app/import/
+    - name: Run artisan command to import data
+      working-directory: ./servers-api
+      run: php artisan servers:import
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       working-directory: ./servers-api
       run: vendor/bin/phpunit
