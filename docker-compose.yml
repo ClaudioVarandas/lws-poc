@@ -1,0 +1,41 @@
+version: '3.9'
+services:
+
+  api:
+    hostname: api
+    container_name: lws-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - lws-default
+    environment:
+      - PHP_VERSION="8.2"
+    volumes:
+      - ./servers-api:/application
+
+  nginx:
+    image: nginx:1.25-alpine3.18
+    container_name: lws-nginx
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./servers-api:/application
+    depends_on:
+      - api
+    networks:
+      - lws-default
+    ports:
+      - '8181:8181'
+
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    ports:
+      - '8188:8080'
+    volumes:
+      - ./doc/api:/usr/share/nginx/html/doc
+    environment:
+      API_URL: /doc/servers-api.yaml
+
+networks:
+  lws-default:
+    name: lws-network

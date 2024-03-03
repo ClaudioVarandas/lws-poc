@@ -1,0 +1,217 @@
+openapi: 3.0.3
+info:
+  title: LW Store - Servers API
+  description: |-
+    This is a poc of the servers api for LW code challenge
+  contact:
+    email: cvarandas@gmail.com
+  version: "0.1"
+servers:
+  - url: "http://localhost:8181/api/v1"
+tags:
+  - name: Server
+    description: Provides the list of servers
+  - name: Options
+    description: Provides the list of available locations to filter the servers list
+paths:
+  /servers:
+    get:
+      tags:
+        - Server
+      summary: Get servers list
+      description: Multiple filters can be provided in the query string
+      operationId: getServersList
+      parameters:
+        - name: location
+          in: query
+          description: Filter the list by location. See options
+          required: false
+          schema:
+            type: string
+        - name: ramType
+          in: query
+          description: Filter the list by ram type. See options
+          required: false
+          schema:
+            type: string
+        - name: ram
+          in: query
+          description: Filter the list by ram size. See options
+          required: false
+          schema:
+            type: string
+        - name: hddType
+          in: query
+          description: Filter the list by hdd type. See options
+          required: false
+          schema:
+            type: string
+        - name: storage
+          in: query
+          description: Filter the list by storage size. See options
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Server"
+  /options/locations:
+    get:
+      tags:
+        - Options
+      summary: Provides the list of available locations
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Location"
+  /options/ram-type:
+    get:
+      tags:
+        - Options
+      summary: Provides the list of available types of ram
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RamType"
+  /options/hdd-type:
+    get:
+      tags:
+        - Options
+      summary: Provides the list of available types of storage
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/HddType"
+  /options/storage:
+    get:
+      tags:
+        - Options
+      summary: Provides the list of available storage options
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Storage"
+  /options/ram:
+    get:
+      tags:
+        - Options
+      summary: Provides the list of available ram options
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Ram"
+components:
+  schemas:
+    Server:
+      type: object
+      properties:
+        model:
+          type: string
+          format: int64
+          example: "Dell R210 Intel Xeon X3440"
+        ram:
+          type: string
+          example: "16GB DDR3"
+        hdd:
+          type: string
+          example: "2x2TB SATA2"
+        location:
+          type: string
+          example: "Amsterdam AMS-01"
+        price:
+          type: string
+          example: "€49.99"
+        ram_size:
+          type: integer
+          format: int64
+        ram_size_unit:
+          type: string
+          example: "GB"
+        ram_type:
+          type: string
+          example: "DDR3"
+        hdd_type:
+          type: string
+          example: "SSD"
+        hdd_size:
+          type: integer
+          format: int64
+        hdd_size_unit:
+          type: string
+          example: "GB"
+    Location:
+      type: object
+      properties:
+        value:
+          type: string
+          example: "AMS01"
+        label:
+          type: string
+          example: "Amsterdam"
+    RamType:
+      type: object
+      properties:
+        value:
+          type: string
+          example: "DDR3"
+        label:
+          type: string
+          example: "DDR3"
+    HddType:
+      type: object
+      properties:
+        value:
+          type: string
+          example: "SSD"
+        label:
+          type: string
+          example: "SSD"
+    Storage:
+      type: object
+      properties:
+        value:
+          type: string
+          example: "1000"
+        label:
+          type: string
+          example: "1TB"
+    Ram:
+      type: object
+      properties:
+        value:
+          type: string
+          example: "16"
+        label:
+          type: string
+          example: "16GB"
