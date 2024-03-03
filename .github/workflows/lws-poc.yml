@@ -39,3 +39,8 @@ jobs:
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       working-directory: ./servers-api
       run: vendor/bin/phpunit
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@v2.2.3
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+
