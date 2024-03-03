@@ -49,7 +49,10 @@ docker compose up -d
 mkdir ./servers-api/storage/app/import
 cp ./etc/import/servers_filters_assignment.csv ./servers-api/storage/app/import/
 
+chmod -R 777 ./servers-api/storage ./servers-api/bootstrap/cache
+
 ./comp.sh install
+./artisan.sh key:generate
 ./artisan.sh servers:import
 
 ```
