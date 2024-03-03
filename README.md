@@ -36,8 +36,7 @@ Instructions:
 
 - Open the command line interface , then :
 
-```bash
-
+```shell
 git clone https://github.com/ClaudioVarandas/lws-poc.git
 cd lws-poc
 
@@ -54,7 +53,7 @@ cp ./etc/import/servers_filters_assignment.csv ./servers-api/storage/app/import/
 ```
 
 You should see this result of the `servers:import` command :
-```bash
+```shell
 ./artisan.sh servers:import
 
 Done importing file.
@@ -95,7 +94,7 @@ To run the tests do `./artisan.sh test` in the project root folder.
 
 You should see a result like this :
 
-```bash
+```shell
    PASS  Tests\Unit\ServerImportHandlerTest
   ✓ it should handle ram and return proper data array with data set "valid value"
   ✓ it should handle ram and return proper data array with data set "invalid value"
@@ -124,13 +123,13 @@ You should see a result like this :
 ```
 
 Or you can run Phpunit directly, just run this in the project root :
-```bash
+```shell
 docker exec -it --user www-data lws-api sh
 ./vendor/bin/phpunit
 ```
 
 and you should see a result like this one:
-```
+```shell
 PHPUnit 10.5.11 by Sebastian Bergmann and contributors.
 
 Runtime:       PHP 8.2.15
