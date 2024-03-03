@@ -9,6 +9,8 @@ Software Engineer @ Velv
 
 ### Project 
 
+[![lws-poc](https://github.com/ClaudioVarandas/lws-poc/actions/workflows/lws-poc.yml/badge.svg)](https://github.com/ClaudioVarandas/lws-poc/actions/workflows/lws-poc.yml)
+
 This project was created to submit the code challenge for LW.
 
 It consists in a api that provides servers information. It has a endpoint to provide the servers
