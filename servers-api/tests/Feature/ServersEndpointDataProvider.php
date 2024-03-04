@@ -11,7 +11,7 @@ final class ServersEndpointDataProvider
                 'queryStringArr' => [
                     'location' => 'AmsterdamAMS-01',
                     'hdd_type' => 'sata',
-                    'ram' => '16GB',
+                    'ram' => ['16GB'],
                     'storage' => ['0', '2TB']
                 ],
                 'count' => 7
@@ -20,7 +20,7 @@ final class ServersEndpointDataProvider
                 'queryStringArr' => [
                     'location' => 'AmsterdamAMS-01',
                     'hdd_type' => 'sata',
-                    'ram' => '16GB',
+                    'ram' => ['16GB'],
                 ],
                 'count' => 15
             ],

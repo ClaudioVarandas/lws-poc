@@ -86,12 +86,29 @@ Notes:
 To access to the php container shell :
 `docker exec -it --user www-data lws-api sh`
 
+### Scripts available
+
+Run artisan commands `./artisan.sh <command>`
+
+Run composer commands `./comp.sh <command>`
+
+Enter the php container `./lws.sh` , and run any command you like.
+
 ### API Documentation
 
+#### Openapi / Swagger UI
 The api documentation follows openapi standard, and is exposed in a friendly ui (Swagger UI), 
 which is available in this url :
 
 - `http://localhost:8188`
+
+#### Postman 
+There is also available , in the doc folder , a postman collection to be imported on postman:
+
+- `<project_root>/doc/api/LWS.postman_collection.json`
+
+Download postman :
+https://www.postman.com/downloads/
 
 ### Tests (PhpUnit)
 
@@ -138,7 +155,7 @@ and you should see a result like this one:
 PHPUnit 10.5.11 by Sebastian Bergmann and contributors.
 
 Runtime:       PHP 8.2.15
-Configuration: /application/phpunit.xml
+Configuration: /api/phpunit.xml
 
 ..............                                                    14 / 14 (100%)
 
@@ -146,3 +163,31 @@ Time: 00:00.412, Memory: 34.00 MB
 
 OK (14 tests, 72 assertions)
 ```
+
+### UI
+
+There a user interface available , to setup you need:
+
+- nodejs 18 or superior
+
+then on the project root :
+
+```shell
+cd servers-ui
+npm install
+```
+
+Then to serve the app :
+
+```shell
+npm run preview
+
+> servers-ui@0.0.0 preview
+> vite preview --port 8888
+
+  ➜  Local:   http://localhost:8888/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+```
+
+Then navigate to http://localhost:8888/

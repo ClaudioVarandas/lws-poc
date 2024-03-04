@@ -28,30 +28,28 @@ paths:
           required: false
           schema:
             type: string
-        - name: ramType
-          in: query
-          description: Filter the list by ram type. See options
-          required: false
-          schema:
-            type: string
+          example: "AmsterdamAMS-01"
         - name: ram
           in: query
           description: Filter the list by ram size. See options
           required: false
           schema:
-            type: string
-        - name: hddType
+            type: array
+          example: "16GB"
+        - name: hdd_type
           in: query
           description: Filter the list by hdd type. See options
           required: false
           schema:
             type: string
+          example: "sata"
         - name: storage
           in: query
           description: Filter the list by storage size. See options
           required: false
           schema:
-            type: string
+            type: array
+          example: "2TB"
       responses:
         "200":
           description: successful operation

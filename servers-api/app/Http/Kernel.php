@@ -2,9 +2,11 @@
 
 namespace App\Http;
 
+use App\Middleware\Cors;
 use App\Middleware\TrimStrings;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
+use Illuminate\Http\Middleware\HandleCors;
 
 class Kernel extends HttpKernel
 {
@@ -45,7 +47,8 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             TrimStrings::class,
-            ConvertEmptyStringsToNull::class
+            ConvertEmptyStringsToNull::class,
+            HandleCors::class
         ],
     ];
 

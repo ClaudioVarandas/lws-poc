@@ -30,7 +30,8 @@ class ServerFormRequest extends FormRequest
         return [
             'location' => ['sometimes', new LocationRule()],
             'hdd_type' => ['sometimes',  Rule::in(HddTypeEnum::getValues())],
-            'ram' => ['sometimes', Rule::in(RamEnum::getValues())],
+            'ram' => ['sometimes','array'],
+            'ram.*' => ['required_with:ram', Rule::in(RamEnum::getValues())],
             'storage' => ['sometimes','array'],
             'storage.0' => ['required_with:storage', Rule::in(StorageEnum::getValues())],
             'storage.1' => ['required_with:storage', Rule::in(StorageEnum::getValues())]
@@ -75,12 +76,16 @@ class ServerFormRequest extends FormRequest
             foreach ($storageValue as $value) {
                 $mergeInput[] = StorageEnum::getValueInGB($value);
             }
-
+            asort($mergeInput);
             $this->merge(['storage' => $mergeInput]);
         }
 
         if ($ramValue = $this->input('ram')){
-            $this->merge(['ram' => RamEnum::getValueInGB($ramValue)]);
+            $mergeInput = [];
+            foreach ($ramValue as $value) {
+                $mergeInput[] = RamEnum::getValueInGB($value);
+            }
+            $this->merge(['ram' => $mergeInput]);
         }
 
         if ($hddTypeValue = $this->input('hdd_type')) {

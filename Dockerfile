@@ -27,16 +27,17 @@ RUN set -eux \
     && echo "${COMPOSER_SUM}  composer.phar" | sha256sum -c - \
     && chmod +x composer.phar \
     && mv composer.phar /usr/local/bin/composer \
-    && composer --version
+    && composer --version \
+    && true
 # Copy PHP-FPM configuration files
 COPY docker/8.2-fpm/www.conf /usr/local/etc/php-fpm.d/www.conf
 COPY docker/8.2-fpm/entrypoint.sh /entrypoint.sh
 RUN chmod u+x /entrypoint.sh
 
-# Copy app
-COPY servers-api /application
+# Copy api and app
+COPY servers-api /api
 
-WORKDIR /application
+WORKDIR /api
 
 STOPSIGNAL SIGQUIT
 

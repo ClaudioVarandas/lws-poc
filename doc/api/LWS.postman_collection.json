@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "c0e30027-360d-41e4-83d0-84c97dde0eb5",
+		"name": "LWS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49075"
+	},
+	"item": [
+		{
+			"name": "GET Servers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8181/api/v1/servers?location=AmsterdamAMS-01&hdd_type=sata&ram[]=16GB&ram[]=8GB&storage[]=0&storage[]=2TB",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"servers"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "AmsterdamAMS-01"
+						},
+						{
+							"key": "hdd_type",
+							"value": "sata"
+						},
+						{
+							"key": "ram[]",
+							"value": "16GB"
+						},
+						{
+							"key": "ram[]",
+							"value": "8GB"
+						},
+						{
+							"key": "storage[]",
+							"value": "0"
+						},
+						{
+							"key": "storage[]",
+							"value": "2TB"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Option Locations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8181/api/v1/options/locations",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"options",
+						"locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Option HddType",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8181/api/v1/options/hdd-type",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"options",
+						"hdd-type"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Option RamType",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8181/api/v1/options/ram-type",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"options",
+						"ram-type"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Option Storage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8181/api/v1/options/storage",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"options",
+						"storage"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

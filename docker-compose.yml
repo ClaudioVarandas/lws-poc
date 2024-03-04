@@ -12,14 +12,14 @@ services:
     environment:
       - PHP_VERSION="8.2"
     volumes:
-      - ./servers-api:/application
+      - ./servers-api:/api
 
   nginx:
     image: nginx:1.25-alpine3.18
     container_name: lws-nginx
     volumes:
       - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./servers-api:/application
+      - ./servers-api:/api
     depends_on:
       - api
     networks:

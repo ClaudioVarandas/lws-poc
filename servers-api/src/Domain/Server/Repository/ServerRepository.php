@@ -23,7 +23,7 @@ class ServerRepository
                     $serversCollection = $serversCollection->where('hdd_type', $request->input('hdd_type'));
                     break;
                 case 'ram';
-                    $serversCollection = $serversCollection->where('ram_size',  $request->input('ram'));
+                    $serversCollection = $serversCollection->whereIn('ram_size',  $request->input('ram'));
                     break;
                 case 'storage';
                     $serversCollection = $serversCollection->whereBetween('hdd_size', $request->input('storage'));

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" xmlns:x-on="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LWS App</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Navigation start -->
+      <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl">LW - Servers</a>
+        </div>
+        <div class="flex-none">
+          <ul class="menu menu-horizontal px-1">
+            <li><a href="https://github.com/ClaudioVarandas/lws-poc">Github</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Navigation end-->
+      <div class="container mx-auto ">
+        <section class="w-full max-w-6xl mx-auto">
+          <div class="grid md:grid-cols-12 gap-5 mt-4">
+            <main class="md:col-span-9 p-2">
+
+              <div class="mt-2" x-data="servers">
+                <table class="table table-xs">
+
+                  <thead>
+                    <tr>
+                      <th>Model</th>
+                      <th>Ram</th>
+                      <th>HDD</th>
+                      <th>Location</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <template x-for="server in servers">
+                    <tr>
+                      <td x-text="server.model"></td>
+                      <td x-text="server.ram"></td>
+                      <td x-text="server.hdd"></td>
+                      <td x-text="server.location"></td>
+                      <td x-text="server.price"></td>
+                    </tr>
+                    </template>
+                  </tbody>
+                </table>
+              </div>
+
+            </main>
+            <aside class="md:col-span-3 md:pt-0 p-2">
+              <!-- Location Start -->
+              <div class="mt-2 mb-2"
+                   x-cloak
+                   x-data="locationOptions">
+                <select class="select select-error w-full max-w-xs"
+                        x-on:change="onChangeLocation"
+                        x-model="selectedLocation">
+                  <option disabled selected value>Choose Location</option>
+                  <template x-for="location in locations">
+                  <option x-bind:value="location.value"
+                          x-text="location.label"
+                          :selected="location.value === selectedLocation"></option>
+                  </template>
+                </select>
+              </div>
+              <!-- Location End -->
+              <!-- RamType Start -->
+              <div class="mt-2 mb-2" >
+                <div class="form-control" x-data="ramTypes">
+                  <template x-for="ramOption in ramOptions">
+                    <label class="label cursor-pointer py-0.5">
+                      <span class="label-text" x-text="ramOption.label"></span>
+                      <input type="checkbox" checked="checked" class="checkbox checkbox-primary"
+                             x-bind:value="ramOption.value"
+                             x-model="selectedRam"
+                             @click.debounce="onClickRamType"/>
+                    </label>
+                  </template>
+                </div>
+              </div>
+              <!-- RamType End -->
+              <!-- HDDType Start -->
+              <div class="mt-2 mb-2"
+                   x-cloak
+                   x-data="storageTypes">
+                <select class="select select-warning w-full max-w-xs"
+                        x-on:change="onChangeStorageType"
+                        x-model="selectedStorageType">
+                  <option disabled selected value>Choose HDD Type</option>
+                  <template x-for="storageType in storageTypesOptions">
+                    <option x-bind:value="storageType.value"
+                            x-text="storageType.label"
+                            :selected="storageType.value === selectedStorageType"></option>
+                  </template>
+                </select>
+              </div>
+              <!-- HDDType End -->
+              <!-- Storage Start -->
+              <div class="mt-4 mb-4">
+                <span class="py-5">Storage size:</span>
+                  <div class="grid grid-cols-2 gap-2"
+                       x-data="storage">
+                    <div class="mt-2 mb-2">
+                      <select id="storage-min-size" class="select select-info w-full max-w-xs"
+                              x-model="selectedMinSize"
+                              x-on:change="onChangeSize">
+                        <option disabled selected value>Min Size</option>
+                        <template x-for="storageOption in storageOptions">
+                          <option class="min-size-option"
+                                  x-bind:value="storageOption.value"
+                                  x-text="storageOption.label"
+                                  :selected="storageOption.value === selectedMinSize"></option>
+                        </template>
+                      </select>
+                    </div>
+                    <div class="mt-2 mb-2">
+                      <select id="storage-max-size" class="select select-info w-full max-w-xs"
+                              x-model="selectedMaxSize"
+                              x-on:change="onChangeSize">
+                        <option disabled selected value>Max Size</option>
+                        <template x-for="storageOption in storageOptions">
+                          <option x-bind:value="storageOption.value"
+                                  x-text="storageOption.label"
+                                  :selected="storageOption.value === selectedMaxSize"></option>
+                        </template>
+                      </select>
+                    </div>
+                  </div>
+              </div>
+              <!-- Storage Start -->
+            </aside>
+          </div>
+        </section>
+
+      </div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
