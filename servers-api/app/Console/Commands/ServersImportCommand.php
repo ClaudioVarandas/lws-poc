@@ -78,7 +78,7 @@ class ServersImportCommand extends Command
                     case 'location':
                         $key = substr($rowData['location'], -6);
                         $label = substr($rowData['location'], 0, strlen($rowData['location']) - 6);
-                        $locationsArr[$key] = $label;
+                        $locationsArr[$rowData['location']] = $rowData['location'];
                         break;
                     default:
                         break;

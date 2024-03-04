@@ -18,7 +18,7 @@ class LocationRule implements ValidationRule
         $exists = false;
 
         foreach (json_decode($locationsDb,true) as $key => $item) {
-            if($value === $item['label'].$item['value']){
+            if($value === $item['value']){
                 $exists = true;
             }
         }
