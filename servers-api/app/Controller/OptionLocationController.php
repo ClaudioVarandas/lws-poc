@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Domain\Server\Repository\OptionRepository;
+use App\Modules\Server\Repository\OptionRepository;
 use App\Response\ApiResponse;
 use Illuminate\Http\Response;
 

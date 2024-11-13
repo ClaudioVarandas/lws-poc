@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Server\Repository;
+namespace App\Modules\Server\Repository;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;

@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Domain\Server\Handler\ServerImportHandler;
+use App\Modules\Server\Handler\ServerImportHandler;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 use Tests\Unit\DataProvider\ServerImportDataProvider;

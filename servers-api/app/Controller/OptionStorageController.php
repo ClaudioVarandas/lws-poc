@@ -2,13 +2,11 @@
 
 namespace App\Controller;
 
-use App\Domain\Server\Enum\HddTypeEnum;
-use App\Domain\Server\Enum\RamEnum;
-use App\Domain\Server\Repository\OptionRepository;
+use App\Modules\Server\Enum\StorageEnum;
 use App\Response\ApiResponse;
 use Illuminate\Http\Response;
 
-class OptionRamTypeController extends Controller
+class OptionStorageController extends Controller
 {
     public function __construct(
         private readonly ApiResponse $apiResponse
@@ -18,6 +16,6 @@ class OptionRamTypeController extends Controller
 
     public function index(): Response
     {
-        return $this->apiResponse->respondSuccess(RamEnum::getList());
+        return $this->apiResponse->respondSuccess(StorageEnum::getList());
     }
 }

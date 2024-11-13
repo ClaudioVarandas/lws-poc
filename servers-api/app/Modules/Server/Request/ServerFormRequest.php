@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domain\Server\Request;
+namespace App\Modules\Server\Request;
 
 
-use App\Domain\Server\Enum\HddTypeEnum;
-use App\Domain\Server\Enum\RamEnum;
-use App\Domain\Server\Enum\StorageEnum;
-use App\Domain\Server\Rule\LocationRule;
+use App\Modules\Server\Enum\HddTypeEnum;
+use App\Modules\Server\Enum\RamEnum;
+use App\Modules\Server\Enum\StorageEnum;
+use App\Modules\Server\Rule\LocationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Server;
+namespace App\Modules\Server;
 
 class ServerTransformer
 {

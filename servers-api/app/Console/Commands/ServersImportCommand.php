@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Domain\Server\Handler\ServerImportHandler;
+use App\Modules\Server\Handler\ServerImportHandler;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 

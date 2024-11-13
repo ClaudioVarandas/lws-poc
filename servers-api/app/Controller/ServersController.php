@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Domain\Server\Repository\ServerRepository;
-use App\Domain\Server\Request\ServerFormRequest;
-use App\Domain\Server\ServerTransformer;
+use App\Modules\Server\Repository\ServerRepository;
+use App\Modules\Server\Request\ServerFormRequest;
+use App\Modules\Server\ServerTransformer;
 use App\Response\ApiResponse;
 use Illuminate\Http\Response;
 

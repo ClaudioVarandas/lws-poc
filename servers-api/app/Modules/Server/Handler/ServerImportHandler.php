@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Domain\Server\Handler;
+namespace App\Modules\Server\Handler;
 
 class ServerImportHandler
 {

@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Domain\Server\Enum\HddTypeEnum;
+use App\Modules\Server\Enum\HddTypeEnum;
 use App\Response\ApiResponse;
 use Illuminate\Http\Response;
 

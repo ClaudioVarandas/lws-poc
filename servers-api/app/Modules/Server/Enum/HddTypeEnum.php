@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Server\Enum;
+namespace App\Modules\Server\Enum;
 
 enum HddTypeEnum implements OptionEnumInterface
 {

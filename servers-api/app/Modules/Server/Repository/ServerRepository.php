@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\Server\Repository;
+namespace App\Modules\Server\Repository;
 
-use App\Domain\Server\Request\ServerFormRequest;
+use App\Modules\Server\Request\ServerFormRequest;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 
